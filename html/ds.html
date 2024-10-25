@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>Display Info</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+            <table class="table table-collapse">
+                <tr>
+                    <th>Thong tin ca nhan</th>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td id="username"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td id="password"></td>
+                </tr>
+                <tr>
+                    <td>Gioi Tinh:</td>
+                    <td id="gioitinh"></td>
+                </tr>
+                <tr>
+                    <td>Cafe:</td>
+                    <td id="cafe"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        document.getElementById('username').innerText = localStorage.getItem('username') || 'N/A';
+        document.getElementById('password').innerText = localStorage.getItem('password') || 'N/A';
+        document.getElementById('gioitinh').innerText = localStorage.getItem('gioitinh') || 'N/A';
+        document.getElementById('cafe').innerText = localStorage.getItem('cafe') || 'N/A';
+    </script>
+</body>
+
+</html>

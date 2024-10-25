@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div class="form-group">
+                <label>Gioi Tinh</label>
+                <div style="margin-left: 30px;">
+                    <input type="radio" name="gioitinh" id="gioitinh-nam" value="nam"> Nam <br>
+                    <input type="radio" name="gioitinh" id="gioitinh-nu" value="nu"> Nu
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Cafe</label><br>
+                <div style="margin-left: 30px;">
+                    <input type="checkbox" name="cafe" id="cafe-trung" value="Trung Nguyen"> Trung Nguyen <br>
+                    <input type="checkbox" name="cafe" id="cafe-mekong" value="Mekong"> Mekong <br>
+                    <input type="checkbox" name="cafe" id="cafe-newBlue" value="New Blue"> New Blue <br>
+                    <input type="checkbox" name="cafe" id="cafe-nuoc" value="Nuoc"> Nuoc
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="nhap()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function nhap() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            var gioitinh;
+            var gt = document.querySelectorAll('input[name="gioitinh"]');
+            for (var i = 0; i < gt.length; i++) {
+                if (gt[i].checked) {
+                    gioitinh = gt[i].value;
+                }
+            }
+
+            var cafe = [];
+            var cf = document.querySelectorAll('input[name="cafe"]:checked');
+            cf.forEach(function(checkbox) {
+                cafe.push(checkbox.value);
+            });
+
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('gioitinh', gioitinh);
+            localStorage.setItem('cafe', cafe.join(', '));
+
+            window.open('ds.html');
+        }
+    </script>
+</body>
+
+</html>
